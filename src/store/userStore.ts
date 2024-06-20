@@ -29,6 +29,7 @@ const useUserStore = create<UserStore>((set) => ({
   userToken: getItem<UserToken>(StorageEnum.Token) || {},
   actions: {
     setUserInfo: (userInfo) => {
+      console.log('userInfo', userInfo)
       set({ userInfo });
       setItem(StorageEnum.User, userInfo);
     },

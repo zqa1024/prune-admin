@@ -7,6 +7,8 @@ import Character6 from '@/assets/images/characters/character_6.png';
 import MotionContainer from '@/components/animate/motion-container';
 import { varBounce } from '@/components/animate/variants/bounce';
 import { useThemeToken } from '@/theme/hooks';
+import { usePermissionRoutes } from '@/router/hooks';
+import { useUserInfo } from '@/store/userStore';
 
 const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
 
@@ -19,6 +21,14 @@ export default function Page404() {
     colorPrimaryTextActive,
     colorPrimaryHover,
   } = useThemeToken();
+
+  const permission = usePermissionRoutes();
+  console.log('permission', permission)
+
+  const userInfo = useUserInfo();
+  console.log('userInfo', userInfo);
+  
+
   return (
     <>
       <Helmet>

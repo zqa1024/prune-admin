@@ -38,11 +38,11 @@ export default defineConfig({
     port: 3001,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://192.168.2.227:3333',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
         // https://github.com/vitejs/vite/discussions/8998#discussioncomment-4408695
-        agent: new Agent({ keepAlive: true, keepAliveMsecs: 20000 }),
+        // agent: new Agent({ keepAlive: true, keepAliveMsecs: 20000 }),
       },
     },
   },
