@@ -11,7 +11,7 @@ export type PermissionModalProps = {
   formValue: Permission;
   title: string;
   show: boolean;
-  onOk: VoidFunction;
+  onOk: (value: Permission) => void;
   onCancel: VoidFunction;
 };
 
@@ -61,8 +61,15 @@ export default function PermissionModal({
     }
   }, [formValue, form, getParentNameById]);
 
+  const newOnOk = () => {
+    form.validateFields().then((values) => {
+      console.log('values', values);
+      onOk(values);
+    });
+  };
+
   return (
-    <Modal title={title} open={show} onOk={onOk} onCancel={onCancel}>
+    <Modal title={title} open={show} onOk={newOnOk} onCancel={onCancel}>
       <Form
         initialValues={formValue}
         form={form}

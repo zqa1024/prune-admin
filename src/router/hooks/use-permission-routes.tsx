@@ -39,7 +39,7 @@ export function usePermissionRoutes() {
 
   const permissions = useUserPermission();
 
-  console.log('permissions', permissions)
+  // console.log('permissions', permissions)
 
   return useMemo(() => {
     const flattenedPermissions = flattenTrees(permissions!);

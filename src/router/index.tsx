@@ -30,6 +30,7 @@ export default function Router() {
     children: [{ index: true, element: <Navigate to={HOMEPAGE} replace /> }, ...permissionRoutes],
   };
 
+  // console.log('asyncRoutes', asyncRoutes, permissionRoutes)
   const routes = [LoginRoute, asyncRoutes, ErrorRoutes, PAGE_NOT_FOUND_ROUTE];
 
   const router = createHashRouter(routes as unknown as RouteObject[]);

@@ -11,7 +11,7 @@ export type RoleModalProps = {
   formValue: Role;
   title: string;
   show: boolean;
-  onOk: VoidFunction;
+  onOk: (value: Role) => void;
   onCancel: VoidFunction;
 };
 const PERMISSIONS: Permission[] = PERMISSION_LIST;
@@ -24,8 +24,14 @@ export function RoleModal({ title, show, formValue, onOk, onCancel }: RoleModalP
     form.setFieldsValue({ ...formValue });
   }, [formValue, form]);
 
+  const newOnOk = () => {
+    form.validateFields().then((values) => {
+      onOk(values);
+    });
+  };
+
   return (
-    <Modal title={title} open={show} onOk={onOk} onCancel={onCancel}>
+    <Modal title={title} open={show} onOk={newOnOk} onCancel={onCancel}>
       <Form
         initialValues={formValue}
         form={form}

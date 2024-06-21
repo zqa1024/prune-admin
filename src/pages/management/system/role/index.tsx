@@ -25,7 +25,8 @@ export default function RolePage() {
     formValue: { ...DEFAULE_ROLE_VALUE },
     title: 'New',
     show: false,
-    onOk: () => {
+    onOk: (value) => {
+      console.log('onOk', value);
       setRoleModalProps((prev) => ({ ...prev, show: false }));
     },
     onCancel: () => {
