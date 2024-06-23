@@ -45,7 +45,10 @@ export default function PermissionPage() {
       title: 'Name',
       dataIndex: 'name',
       width: 300,
-      render: (_, record) => <div>{t(record.label)}</div>,
+      render: (_, record) => {
+        console.log('record', record, t(record.label));
+        return <div>{t(record.label)}</div>;
+      },
     },
     {
       title: 'Type',

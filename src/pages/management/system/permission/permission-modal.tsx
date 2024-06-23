@@ -73,8 +73,8 @@ export default function PermissionModal({
       <Form
         initialValues={formValue}
         form={form}
-        labelCol={{ span: 4 }}
-        wrapperCol={{ span: 18 }}
+        labelCol={{ span: 5 }}
+        wrapperCol={{ span: 17 }}
         layout="horizontal"
       >
         <Form.Item<Permission> label="Type" name="type" required>
